@@ -7,13 +7,15 @@ public class Batidora {
 	
 	/* Comentario de prueba */
 	
+	private ICalculadora objCalculadora;
+	
 	public double calcularTiempoTotalDeReceta(double minuto1, double minuto2) {
-		Calculadora objCalculadora = new Calculadora();
+		this.objCalculadora.reset();
 		
-		objCalculadora.sumar(minuto1);
-		objCalculadora.sumar(minuto2);
+		this.objCalculadora.sumar(minuto1);
+		this.objCalculadora.sumar(minuto2);
 		
-		tiempoTotalDeLaReceta = objCalculadora.getResultado();
+		tiempoTotalDeLaReceta = getObjCalculadora().getResultado();
 		
 		return tiempoTotalDeLaReceta;
 		
@@ -25,10 +27,9 @@ public class Batidora {
 	 * 
 	 */
 	public double calcularMinutosRestantes(double minutosPasados) {
-		Calculadora objCalculadora = new Calculadora();
-		
-		objCalculadora.sumar(tiempoTotalDeLaReceta);
-		objCalculadora.restar(minutosPasados);
+		this.objCalculadora.reset();
+		this.objCalculadora.sumar(tiempoTotalDeLaReceta);
+		this.objCalculadora.restar(minutosPasados);
 		minutosRestantes = objCalculadora.getResultado();
 		
 		return minutosRestantes;
@@ -40,6 +41,14 @@ public class Batidora {
 	
 	public double getMinutosRestantes() {
 		return minutosRestantes;
+	}
+
+	public ICalculadora getObjCalculadora() {
+		return objCalculadora;
+	}
+
+	public void setObjCalculadora(ICalculadora objCalculadora) {
+		this.objCalculadora = objCalculadora;
 	}
 
 }

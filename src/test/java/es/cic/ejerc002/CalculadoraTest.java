@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class CalculadoraTest {
 	
-	private Calculadora cut;
+	private ICalculadora cut;
 	
 	
 
@@ -27,7 +27,7 @@ class CalculadoraTest {
 
 	@Test
 	void testRestar() {
-		Calculadora cut = new Calculadora();
+		ICalculadora cut = new Calculadora();
 		
 		cut.restar(-3.4);
 		cut.restar(3.2);
@@ -38,7 +38,7 @@ class CalculadoraTest {
 
 	@Test
 	void testMultiplicar() {
-		Calculadora cut = new Calculadora();
+		ICalculadora cut = new Calculadora();
 		cut.sumar(1.5);
 		cut.multiplicar(3.2);
 		
@@ -48,12 +48,12 @@ class CalculadoraTest {
 
 	@Test
 	void testDividir() {
-		Calculadora cut = new Calculadora();
+		ICalculadora cut = new Calculadora();
 		cut.sumar(1.5);
 		cut.dividir(3.2);
 		
 		double resultado = cut.getResultado();
-		assertEquals(4.8, resultado, 0.000001);
+		assertEquals(0.46875, resultado, 0.000001);
 	}
 
 }
